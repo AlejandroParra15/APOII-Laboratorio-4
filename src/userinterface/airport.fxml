@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="758.0" prefWidth="1459.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userinterface.AirportController">
+   <top>
+      <HBox alignment="CENTER" prefHeight="71.0" prefWidth="1202.0" style="-fx-background-color: gainsboro; -fx-border-color: BLACK;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="lbTime" prefHeight="83.0" prefWidth="223.0" text="12:30">
+               <font>
+                  <Font name="System Bold Italic" size="52.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="-150.0" />
+               </HBox.margin>
+            </Label>
+            <ImageView fitHeight="61.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Downloads/departures.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="100.0" />
+               </HBox.margin>
+            </ImageView>
+            <Label text="SALIDAS">
+               <font>
+                  <Font name="System Italic" size="48.0" />
+               </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets left="25.0" />
+               </padding>
+            </Label>
+            <Label text="DEPARTURES">
+               <font>
+                  <Font name="System Italic" size="48.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="150.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+         <padding>
+            <Insets left="60.0" />
+         </padding>
+      </HBox>
+   </top>
+   <center>
+      <TableView fx:id="tableView" prefHeight="607.0" prefWidth="1078.0" style="-fx-background-color: #0066CC; -fx-border-color: BLACK;" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="colum_time" editable="false" maxWidth="1.7976931348623157E308" minWidth="20.0" prefWidth="200.0" resizable="false" style="-fx-background-color: #0066CC; -fx-text-fill: WHITE; -fx-text-alignment: center; -fx-border-color: BLACK;" text="TIME" />
+          <TableColumn fx:id="colum_airline" editable="false" prefWidth="200.0" resizable="false" style="-fx-background-color: #0066CC; -fx-text-fill: WHITE; -fx-text-alignment: center; -fx-border-color: BLACK;" text="AIRLINE" />
+            <TableColumn fx:id="colum_flight" editable="false" prefWidth="200.0" resizable="false" style="-fx-background-color: #0066CC; -fx-text-fill: WHITE; -fx-text-alignment: CENTER; -fx-border-color: BLACK;" text="FLIGHT" />
+            <TableColumn fx:id="colum_to" editable="false" prefWidth="200.0" resizable="false" style="-fx-background-color: #0066CC; -fx-text-fill: WHITE; -fx-text-alignment: right; -fx-border-color: BLACK;" text="TO" />
+            <TableColumn fx:id="colum_gate" editable="false" prefWidth="200.0" resizable="false" style="-fx-background-color: #0066CC; -fx-text-fill: WHITE; -fx-text-alignment: center; -fx-border-color: BLACK;" text="GATE" />
+            <TableColumn fx:id="colum_date" editable="false" prefWidth="200.0" resizable="false" style="-fx-background-color: #0066CC; -fx-text-fill: WHITE; -fx-text-alignment: center; -fx-border-color: BLACK;" text="DATE" />
+        </columns>
+      </TableView>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="1202.0" style="-fx-background-color: tomato;" BorderPane.alignment="CENTER_LEFT">
+         <children>
+            <ImageView fx:id="img_back" fitHeight="34.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+               <image>
+                  <Image url="@../../../../Downloads/play-button%20(1).png" />
+               </image>
+            </ImageView>
+            <Label text="WELCOME TO  APOII INTERNATIONAL AIRPORT" textFill="WHITE">
+               <font>
+                  <Font name="System Italic" size="26.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="350.0" />
+               </HBox.margin>
+            </Label>
+            <ImageView fx:id="img_next" fitHeight="34.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Downloads/play-button%20(1).png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="230.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+   </bottom>
+   <right>
+      <VBox alignment="TOP_CENTER" prefHeight="607.0" prefWidth="255.0" style="-fx-background-color: tomato; -fx-border-color: BLACK;" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="ORDER FLIGHT">
+               <font>
+                  <Font name="System Bold Italic" size="29.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Label>
+            <VBox prefHeight="173.0" prefWidth="253.0">
+               <children>
+                  <RadioButton fx:id="order_time" mnemonicParsing="false" text="Time">
+                     <VBox.margin>
+                        <Insets top="4.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                     <padding>
+                        <Insets left="24.0" />
+                     </padding>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="order" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="order_airline" mnemonicParsing="false" text="Airline" toggleGroup="$order">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                     <padding>
+                        <Insets left="24.0" />
+                     </padding>
+                  </RadioButton>
+                  <RadioButton fx:id="order_flight" mnemonicParsing="false" text="Flight" toggleGroup="$order">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                     <padding>
+                        <Insets left="24.0" />
+                     </padding>
+                  </RadioButton>
+                  <RadioButton fx:id="order_destination" mnemonicParsing="false" text="Destination" toggleGroup="$order">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                     <padding>
+                        <Insets left="24.0" />
+                     </padding>
+                  </RadioButton>
+                  <RadioButton fx:id="order_gate" mnemonicParsing="false" text="Gate" toggleGroup="$order">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                     <padding>
+                        <Insets left="24.0" />
+                     </padding>
+                  </RadioButton>
+                  <RadioButton fx:id="order_date" mnemonicParsing="false" text="Date" toggleGroup="$order">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                     <padding>
+                        <Insets left="24.0" />
+                     </padding>
+                  </RadioButton>
+               </children>
+            </VBox>
+            <Separator prefWidth="200.0" style="-fx-background-color: BLACK;">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin></Separator>
+            <Label text="SEARCH FLIGHT">
+               <font>
+                  <Font name="System Bold Italic" size="29.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="4.0" />
+               </VBox.margin>
+            </Label>
+            <VBox prefHeight="153.0" prefWidth="253.0">
+               <children>
+                  <RadioButton fx:id="search_time" mnemonicParsing="false" text="Time">
+                     <VBox.margin>
+                        <Insets top="4.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                     <padding>
+                        <Insets left="24.0" />
+                     </padding>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="search" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="search_airline" mnemonicParsing="false" text="Airline" toggleGroup="$search">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                     <padding>
+                        <Insets left="24.0" />
+                     </padding>
+                  </RadioButton>
+                  <RadioButton fx:id="search_flight" mnemonicParsing="false" text="Flight" toggleGroup="$search">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                     <padding>
+                        <Insets left="24.0" />
+                     </padding>
+                  </RadioButton>
+                  <RadioButton fx:id="search_destination" mnemonicParsing="false" text="Destination" toggleGroup="$search">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                     <padding>
+                        <Insets left="24.0" />
+                     </padding>
+                  </RadioButton>
+                  <RadioButton fx:id="search_gate" mnemonicParsing="false" text="Gate" toggleGroup="$search">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                     <padding>
+                        <Insets left="24.0" />
+                     </padding>
+                  </RadioButton>
+                  <RadioButton fx:id="search_date" mnemonicParsing="false" text="Date" toggleGroup="$search">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                     <padding>
+                        <Insets left="24.0" />
+                     </padding>
+                  </RadioButton>
+               </children>
+            </VBox>
+            <TextField fx:id="tfSearch" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="215.0">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <Separator prefWidth="200.0" style="-fx-background-color: BLACK;">
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+            </Separator>
+            <Label text="GENERATE FLIGHTS">
+               <font>
+                  <Font name="System Bold Italic" size="25.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="tfNumberOfFlights" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="215.0" promptText="NUMBER OF FLIGHTS">
+               <VBox.margin>
+                  <Insets top="12.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Button fx:id="btGenerate" mnemonicParsing="false" onAction="#GenerateFlights" prefHeight="36.0" prefWidth="75.0" text="Generate">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </right>
+</BorderPane>
