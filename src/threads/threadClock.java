@@ -4,7 +4,7 @@ import userinterface.AirportController;
 
 public class threadClock extends Thread {
 
-	AirportController air;
+	private AirportController air;
 
 	public threadClock(AirportController ai) {
 		air = ai;

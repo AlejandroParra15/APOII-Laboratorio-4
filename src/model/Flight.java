@@ -1,25 +1,25 @@
 package model;
 
-import java.text.SimpleDateFormat;
+import java.time.LocalTime;
 import java.util.Date;
 
-public class Flight implements Comparable<Flight>{
+public class Flight implements Comparable<Flight> {
 
 	private Date date;
 	private String dateS;
-	private Date time;
+	private LocalTime time;
 	private String timeS;
 	private String airline;
 	private String flight;
 	private String destination;
 	private int gate;
-	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 
-	public Flight(Date date, String dateS, Date time, String timeS, String airline, String flight, String destination, int gate) {
+	public Flight(Date date, String dateS, LocalTime start, String timeS, String airline, String flight,
+			String destination, int gate) {
 		this.date = date;
 		this.dateS = dateS;
 		this.timeS = timeS;
-		this.time = time;
+		this.time = start;
 		this.airline = airline;
 		this.flight = flight;
 		this.destination = destination;
@@ -42,11 +42,11 @@ public class Flight implements Comparable<Flight>{
 		this.date = date;
 	}
 
-	public Date getTime() {
+	public LocalTime getTime() {
 		return time;
 	}
 
-	public void setTime(Date time) {
+	public void setTime(LocalTime time) {
 		this.time = time;
 	}
 
@@ -91,9 +91,46 @@ public class Flight implements Comparable<Flight>{
 	}
 
 	@Override
-	public int compareTo(Flight o) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int compareTo(Flight other) {
+
+		int comparation;
+		if (date.after(other.date)) {
+			comparation = 1;
+		} else if (date.before(other.date)) {
+			comparation = -1;
+		} else {
+			comparation = 0;
+		}
+
+		return comparation;
+	}
+
+	public int compareToGate(Flight other) {
+
+		int comparation;
+		if (gate > other.gate) {
+			comparation = 1;
+		} else if (gate < other.gate) {
+			comparation = -1;
+		} else {
+			comparation = 0;
+		}
+
+		return comparation;
+	}
+	
+	public int compareToTime(Flight other) {
+
+		int comparation;
+		if (time.isAfter(other.time)) {
+			comparation = 1;
+		} else if (time.isBefore(other.time)) {
+			comparation = -1;
+		} else {
+			comparation = 0;
+		}
+
+		return comparation;
 	}
 
 }

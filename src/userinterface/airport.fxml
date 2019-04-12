@@ -76,11 +76,6 @@
    <bottom>
       <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="1202.0" style="-fx-background-color: tomato;" BorderPane.alignment="CENTER_LEFT">
          <children>
-            <ImageView fx:id="img_back" fitHeight="34.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
-               <image>
-                  <Image url="@../../../../Downloads/play-button%20(1).png" />
-               </image>
-            </ImageView>
             <Label text="WELCOME TO  APOII INTERNATIONAL AIRPORT" textFill="WHITE">
                <font>
                   <Font name="System Italic" size="26.0" />
@@ -89,14 +84,6 @@
                   <Insets left="350.0" />
                </HBox.margin>
             </Label>
-            <ImageView fx:id="img_next" fitHeight="34.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../Downloads/play-button%20(1).png" />
-               </image>
-               <HBox.margin>
-                  <Insets left="230.0" />
-               </HBox.margin>
-            </ImageView>
          </children>
       </HBox>
    </bottom>

@@ -1,0 +1,3 @@
+Tokio,Nueva York,Los Ángeles,Seúl,Londres,París,Osaka,Chicago,Moscú
+Pekín,Colonia,Houston,Washington D.C,Hong Kong,Dallas,Ciudad de México,Cantón
+Singapur,Boston,Dubai,Munich,Rio de Janeiro,Lima,Viena,Barcelona,Roma,Bogotá

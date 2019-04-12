@@ -1,7 +1,11 @@
 package userinterface;
 
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.swing.JOptionPane;
 
@@ -22,15 +26,17 @@ import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import model.Airport;
 import model.Flight;
+import model.SortLexicographically;
+import model.Sorting;
 import threads.threadClock;
 
 public class AirportController {
 
 	Airport airp = new Airport("APOII");
-
+	Sorting sorting = new Sorting();
+	SortLexicographically sortL;
 	@FXML
 	private Label lbTime;
 	@FXML
@@ -78,9 +84,9 @@ public class AirportController {
 	@FXML
 	private Button btGenerate;
 	@FXML
-    private ImageView img_back;
-    @FXML
-    private ImageView img_next;
+	private ImageView img_back;
+	@FXML
+	private ImageView img_next;
 
 	public void initialize() {
 		colum_time.setCellValueFactory(new PropertyValueFactory<>("timeS"));
@@ -90,6 +96,11 @@ public class AirportController {
 		colum_gate.setCellValueFactory(new PropertyValueFactory<>("gate"));
 		colum_date.setCellValueFactory(new PropertyValueFactory<>("dateS"));
 		airp.generateFlights(25);
+		Flight[] flights = null;
+		flights = airp.getFlights().toArray(new Flight[airp.getFlights().size()]);
+		List<Flight> list = Arrays.stream(sorting.flightSorting(flights)).collect(Collectors.toList());
+		ObservableList<Flight> Obsflights = FXCollections.observableArrayList(list);
+		airp.setFlights(Obsflights);
 		tableView.setItems(airp.getFlights());
 		threadClock th = new threadClock(this);
 		th.setDaemon(true);
@@ -99,41 +110,39 @@ public class AirportController {
 				if (order.getSelectedToggle() != null) {
 					RadioButton selectedRadioButton = (RadioButton) order.getSelectedToggle();
 					String toogleGroupValue = selectedRadioButton.getText();
-					switch (toogleGroupValue) {
-					case "Time":
-
-						break;
-
-					case "Airline":
-						airp.sortbyAirline();
+					sortL = new SortLexicographically(toogleGroupValue);
+					if (toogleGroupValue.equals("Airline") || toogleGroupValue.equals("Flight")
+							|| toogleGroupValue.equals("Destination")) {
+						Collections.sort(airp.getFlights(), sortL);
 						tableView.setItems(airp.getFlights());
-						break;
+					} else {
+						Flight[] flights = null;
+						flights = airp.getFlights().toArray(new Flight[airp.getFlights().size()]);
+						switch (toogleGroupValue) {
+						case "Date":
+							List<Flight> list = Arrays.stream(sorting.flightSorting(flights))
+									.collect(Collectors.toList());
+							ObservableList<Flight> Obsflights = FXCollections.observableArrayList(list);
+							tableView.setItems(Obsflights);
+							break;
 
-					case "Flight":
+						case "Time":
+							tableView.setItems(sorting.orderByTime(airp.getFlights()));
+							break;
 
-						break;
+						case "Gate":
+							tableView.setItems(sorting.orderByGate(airp.getFlights()));
+							break;
 
-					case "Destination":
-
-						break;
+						}
 					}
 				}
 			}
 		});
-		
-		img_back.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-	         System.out.println("Back");
-	         event.consume();
-	     });
-		
-		img_next.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-	         System.out.println("Next");
-	         event.consume();
-	     });
 	}
 
 	@FXML
-	void GenerateFlights(ActionEvent event) {
+	public void GenerateFlights(ActionEvent event) {
 		ObservableList<Flight> fli = FXCollections.observableArrayList();
 		airp.setFlights(fli);
 		try {
