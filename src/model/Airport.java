@@ -68,7 +68,7 @@ public class Airport {
 	public String generateNumFlights() {
 		String num = "";
 		int numAleatorio = (int) Math.floor(Math.random() * (100 - 999) + 999);
-		num = abecedario[randBetween(0, 25)] + abecedario[randBetween(0, 26)] + "-" + numAleatorio;
+		num = abecedario[randBetween(0, 25)] + abecedario[randBetween(0, 25)] + "-" + numAleatorio;
 		return num;
 	}
 

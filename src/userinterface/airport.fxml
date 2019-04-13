@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="758.0" prefWidth="1459.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userinterface.AirportController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="804.0" prefWidth="1459.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userinterface.AirportController">
    <top>
       <HBox alignment="CENTER" prefHeight="71.0" prefWidth="1202.0" style="-fx-background-color: gainsboro; -fx-border-color: BLACK;" BorderPane.alignment="CENTER">
          <children>
@@ -231,6 +231,11 @@
                   <Insets top="5.0" />
                </VBox.margin>
             </TextField>
+            <Button mnemonicParsing="false" onAction="#searchFlights" prefHeight="38.0" prefWidth="92.0" text="Search">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
             <Separator prefWidth="200.0" style="-fx-background-color: BLACK;">
                <VBox.margin>
                   <Insets top="8.0" />

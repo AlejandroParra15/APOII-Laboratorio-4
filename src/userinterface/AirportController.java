@@ -37,6 +37,7 @@ public class AirportController {
 	Airport airp = new Airport("APOII");
 	Sorting sorting = new Sorting();
 	SortLexicographically sortL;
+	String text = "";
 	@FXML
 	private Label lbTime;
 	@FXML
@@ -139,6 +140,48 @@ public class AirportController {
 				}
 			}
 		});
+
+		search.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+			@Override
+			public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
+				if (order.getSelectedToggle() != null) {
+					RadioButton selectedRadioButton = (RadioButton) order.getSelectedToggle();
+					String toogleGroupValue = selectedRadioButton.getText();
+					text = toogleGroupValue;
+				}
+			}
+
+		});
+	}
+
+	public void searchFlights() {
+		if (!text.equals("")) {
+			switch (text) {
+			case "Time":
+
+				break;
+			case "Airline":
+
+				break;
+			case "Flight":
+
+				break;
+			case "Destination":
+
+				break;
+			case "Gate":
+
+				break;
+			case "Date":
+
+				break;
+
+			default:
+				break;
+			}
+		} else {
+			tfSearch.requestFocus();
+		}
 	}
 
 	@FXML
